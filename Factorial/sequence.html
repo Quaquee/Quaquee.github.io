@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Series Calculator</title>
+<link rel="stylesheet" href="sequence.css">
+<link rel="stylesheet" href="../nav.css">
+</head>
+
+<body>
+
+<!--NAVIGATION BAR-->
+<body>
+<div class="nav">
+<a href="../index.html">HOME</a>
+<a href="../UnitConverter/converter.html">Unit Converter</a>
+<a href="../IncomeTax/tax.html">Income Tax Calculator</a>
+<a href="../Factorial/sequence.html" class="active">Sequence Calculator</a>
+<a href="../Payroll/payroll.html">Simple Payroll</a>
+</div>
+
+<select name = "Series Type" id = "series">
+  <option value = "0">N Factorial</option>
+  <option value = "1">Sum of First N Numbers</option>
+  <option value = "2">Average of Sum of First N Numbers</option>
+</select>
+
+<br><br>
+<label for="inputN">Input value for N: </label>
+<input id="inputN" type="number">
+
+<label for="output">Output value: </label>
+<input id="output" type="number" readonly>
+<br><br>
+<button id="clear">Clear</button>
+<button id="calculate">Calculate</button>
+
+<script src="sequence.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  background-color: #fcfdec
+}
+
+.nav {
+  overflow: hidden;
+  background-color: #fff098;
+}
+
+.nav a {
+  color: #000000;
+  float: left;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  background-color: #fff7c9
+}
+
+.nav a.active {
+  background-color: #f9dc3a;
+}

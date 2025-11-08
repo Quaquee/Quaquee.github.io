@@ -1,50 +1,21 @@
+<!DOCTYPE html> 
+<html>
 <head>
-<title>UnitConverter</title>
+<title>RJs playground thingimajig</title>
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="nav.css">
 </head>
 
+<!--NAVIGATION BAR-->
 <body>
-<h1>Unit Converter</h1>
-<select name="Conversion Type" id="convert" onclick="convertUnit()">
-    <option value="0">Fahrenheit to Celsius</option>
-    <option value="1">Celsius to Fahrenheit</option>
-    <option value="2">Meters to Feet</option>
-    <option value="3">Feet to Meters</option>
-</select>
+<div class="nav">
+<a href="index.html" class="active">HOME</a>
+<a href="UnitConverter/converter.html">Unit Converter</a>
+<a href="IncomeTax/tax.html">Income Tax Calculator</a>
+<a href="Factorial/sequence.html">Sequence Calculator</a>
+<a href="Payroll/payroll.html">Simple Payroll</a>
+</div>
 
-<br><br>
-
-<label for="inputUnit">Input: </label>
-<input id="inputUnit" type="number" onkeyup="convertUnit()">
-
-<label for="outputUnit">Output: </label>
-<input id="outputUnit" type="number" readonly>
-<br><br>
-<img src="peak.png" alt="Weird Suitcase Generation" width="640" height="360">
-
-<script>
-    function convertUnit() {
-        var selection, x, y;
-        selection = document.getElementById("convert").value;
-        x = document.getElementById("inputUnit").value*1;
-
-        if (selection == "0") {
-            y = (x - 32) * 5 / 9;
-        }
-
-        if (selection == "1") {
-            y = x * 1.8 + 32
-        }
-
-        if (selection == "2") {
-            y = x / 0.3048
-        }
-
-        if (selection == "3") {
-            y = x * 0.3048
-        }
-        
-        document.getElementById("outputUnit").value=y.toFixed(2);
-
-    }
+<script src="home.js">
 </script>
 </body>

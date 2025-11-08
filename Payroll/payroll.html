@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Payroll</title>
+<link rel="stylesheet" href="payroll.css">
+<link rel="stylesheet" href="../nav.css">
+</head>
+
+<body>
+
+<!--NAVIGATION BAR-->
+<body>
+<div class="nav">
+<a href="../index.html">HOME</a>
+<a href="../UnitConverter/converter.html">Unit Converter</a>
+<a href="../IncomeTax/tax.html">Income Tax Calculator</a>
+<a href="../Factorial/sequence.html">Sequence Calculator</a>
+<a href="../Payroll/payroll.html" class="active">Simple Payroll</a>
+</div>
+
+<h1>Payroll</h1>
+<div>
+<h2>Add to payroll:</h2>
+<label for="employeeName">Employee Name: </label>
+<input type="text" id="employeeName"><br>
+<label for="daysWorked">Days Worked: </label>
+<input type="number" id="daysWorked"><br>
+<label for="dailyRate">Daily Rate: </label>
+<input type="number" id="dailyRate"><br>
+<label for="deductionAmount">Deduction Amount: </label>
+<input type="number" id="deductionAmount"><br>
+<label for="grossPay">Gross Pay: </label>
+<input type="number" id="grossPay" readonly><br>
+<label for="netPay">Net Pay: </label>
+<input type="number" id="netPay" readonly><br><br>
+<button id="addRow">Add to payroll</button>
+<button id="deleteRow">Delete from payroll</button>
+
+<dialog id="dlgConfirmationDelete">
+  <form method="dialog">
+    <h4 id="confirmationDeleteMsg"></h4>
+    <input id="rowDelete" type="number"></button>
+    <br><br>
+    <button id="confirmDelete" value="confirm">Confirm</button>
+    <button id="cancelDelete" value="cancel">Cancel</button>
+  </form>
+</dialog>
+</div>
+
+<br><br>
+<div>
+<table>
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Employee Name</th>
+      <th>Days Worked</th>
+      <th>Daily Rate</th>
+      <th>Gross Pay</th>
+      <th>Deduction Amount</th>
+      <th>Net Pay</th>
+    </tr>
+  </thead>
+
+  <tbody id="rowInfo"></tbody>
+  
+</table>
+</div>
+<script src="payroll.js"></script>
+</body>
+</html>
