@@ -48,5 +48,5 @@ document.getElementById("calculate").addEventListener("click", ()=>
     }
     result /= N;
   }
-  N!="" ? document.getElementById("output").value = result : null;
+  document.getElementById("output").value = result;
 });
