@@ -35,13 +35,26 @@ function deleteRow() {
   updateRows();
 }
 
+function deleteAll() {
+  document.getElementById("rowDisplay").innerHTML = null;
+  rowInfo = [];
+}
+
+function save() {
+  localStorage.setItem("tableSave", JSON.stringify(rowInfo));
+}
+
+function retrieveSave() {
+  rowInfo = JSON.parse(localStorage.getItem("tableSave"));
+  updateRows();
+}
+
 function updateRows() {
-  document.getElementById("rowInfo").innerHTML = "";
+  document.getElementById("rowDisplay").innerHTML = "";
   let employeeCount = rowInfo.length;
-  let tbody = "";
 
   for (let i = 0; i < employeeCount; i++) {
-    tbody +="<tr>"
+    document.getElementById("rowDisplay").innerHTML +="<tr>"
     +"<td>"+(i+1)+"</td>"
     +"<td>"+rowInfo[i].employeeName+"</td>"
     +"<td>"+rowInfo[i].daysWorked+"</td>"
@@ -51,8 +64,6 @@ function updateRows() {
     +"<td>"+rowInfo[i].netPay+"</td>"
     +"</tr>";
   }
-
-  document.getElementById("rowInfo").innerHTML = tbody;
 
     //Reset Values
   document.getElementById("employeeName").value = null;
@@ -64,14 +75,28 @@ function updateRows() {
 }
 
 //Main Function
+let rowInfo = [];
 (()=>
 {
-  rowInfo=[];
+  try {
+    const savedData = localStorage.getItem("tableSave");
+    if (savedData) {
+      rowInfo = JSON.parse(savedData);
+      updateRows();
+    }
+  } 
+  catch (error) {
+    console.error("Error loading data from localStorage", error);
+  }
+
   document.getElementById("daysWorked").addEventListener("input", computeGrossPay);
   document.getElementById("dailyRate").addEventListener("input", computeGrossPay);
   document.getElementById("deductionAmount").addEventListener("input", computeNetPay);
   document.getElementById("addRow").addEventListener("click", addRow);
   document.getElementById("deleteRow").addEventListener("click", deleteConfirmation);
+  document.getElementById("deleteAll").addEventListener("click", deleteAll);
+  document.getElementById("save").addEventListener("click", save);
+  document.getElementById("retrieveSave").addEventListener("click", retrieveSave);
 
 
   confirmDelete.addEventListener("click", () =>{ 
