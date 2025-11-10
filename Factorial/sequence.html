@@ -9,15 +9,16 @@
 <body>
 
 <!--NAVIGATION BAR-->
-<body>
 <div class="nav">
-<a href="../index.html">HOME</a>
+<a href="../index.html" class="main">HOME</a>
 <a href="../UnitConverter/converter.html">Unit Converter</a>
 <a href="../IncomeTax/tax.html">Income Tax Calculator</a>
 <a href="../Factorial/sequence.html" class="active">Sequence Calculator</a>
 <a href="../Payroll/payroll.html">Simple Payroll</a>
 </div>
 
+<div class="content">
+<h1>Sequence Calculator</h1>
 <select name = "Series Type" id = "series">
   <option value = "0">N Factorial</option>
   <option value = "1">Sum of First N Numbers</option>
@@ -33,7 +34,8 @@
 <br><br>
 <button id="clear">Clear</button>
 <button id="calculate">Calculate</button>
-
+<p id="warning"></p>
+</div>
 <script src="sequence.js"></script>
 </body>
 </html>
