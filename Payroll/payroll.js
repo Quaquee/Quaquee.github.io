@@ -1,40 +1,53 @@
-//Initialization Functions
+//INITIALIZATION
 function initEventHandler() {
   document.getElementById("daysWorked").addEventListener("change", computeGrossPay);
   document.getElementById("dailyRate").addEventListener("change", computeGrossPay);
   document.getElementById("deductionAmount").addEventListener("change", computeNetPay);
   document.getElementById("addRow").addEventListener("click", addRow);
-  document.getElementById("deleteRow").addEventListener("click", deleteConfirmation);
-  document.getElementById("deleteAll").addEventListener("click", deleteAll);
-  document.getElementById("save").addEventListener("click", save);
-  document.getElementById("retrieveSave").addEventListener("click", retrieveSave);
+  document.getElementById("deleteRow").addEventListener("click", deleteRowConfirmation);
+  document.getElementById("deleteAll").addEventListener("click", deleteAllConfirmation);
+  document.getElementById("save").addEventListener("click", saveConfirmation);
+  document.getElementById("retrieveSave").addEventListener("click", retrieveConfirmation);
 }
 
-function initDialog() {
-  //Delete Row?
-  confirmDelete.addEventListener("click", () => { 
-    dlgConfirmationDelete.returnValue = "confirm";
-    dlgConfirmationDelete.close("confirm");
+//DIALOG FUNCTIONS
+//Delete Row
+function deleteRowConfirmation() {
+  dlgDeleteRow.showModal();
+
+  confirmDeleteRow.addEventListener("click", () => { 
+    deleteRow();
   });
-
-  cancelDelete.addEventListener("click", () => {
-    dlgConfirmationDelete.returnValue = "cancel";
-    dlgConfirmationDelete.close("cancel");
-  });
-
-  dlgConfirmationDelete.addEventListener("close", (choice) => {
-    let choiceValue = choice.target.returnValue;
-    if (choiceValue == "confirm") {
-      deleteRow();
-    }
-  });
-
-  //Save Table?
-
-  //Load Saved Table?
 }
 
-//Functions (Alphabetical Order)
+//Delete All?
+function deleteAllConfirmation() {
+  dlgDeleteAll.showModal();
+
+  confirmDeleteAll.addEventListener("click", () => { 
+    deleteAll();
+  });
+}
+
+//Save Table?
+function saveConfirmation() {
+  dlgSaveTable.showModal();
+
+  confirmSave.addEventListener("click", () => { 
+    save();
+  });
+}
+
+//Load Saved Table?
+function retrieveConfirmation() {
+  dlgRetrieveSave.showModal();
+
+  confirmRetrieve.addEventListener("click", () => { 
+    retrieveSave();
+  });
+}
+
+//OTHER FUNCTIONS (ALPHABETICAL ORDER)
 function addRow() {
   let employeeInfo = {
     "employeeName":document.getElementById("employeeName").value,
@@ -69,10 +82,6 @@ function computeNetPay()
 {
   document.getElementById("deductionAmount").value = round(document.getElementById("deductionAmount").value, 2);
   document.getElementById("netPay").value = round(document.getElementById("grossPay").value - document.getElementById("deductionAmount").value, 2);
-}
-
-function deleteConfirmation() {
-  dlgConfirmationDelete.showModal();
 }
 
 function deleteRow() {
@@ -129,7 +138,7 @@ function updateRows() {
   document.getElementById("netPay").value = null;
 }
 
-//Main Function
+//MAIN FUNCTION
 let rowInfo = [];
 (()=>
 {
@@ -147,6 +156,5 @@ let rowInfo = [];
 
   //initialization
   initEventHandler();
-  initDialog();
 
 })();

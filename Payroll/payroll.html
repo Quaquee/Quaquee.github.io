@@ -20,7 +20,7 @@
 
 <div class="content">
 <!--Inputs-->
-  <div class = "inputs">
+  <div class="inputs">
   <h1>Payroll</h1>
   <h2>Add to payroll:</h2>
   <label for="employeeName">Employee Name: </label>
@@ -38,7 +38,7 @@
   </div>
 
 <!--Buttons-->
-  <div class = "buttons">
+  <div class="buttons">
   <button id="addRow">Add to payroll</button>
   <button id="deleteRow">Delete from payroll</button>
   <br><br>
@@ -71,17 +71,43 @@
   </div>
 
 <!--Dialog Boxes-->
-  <div class = "dialogs">
-  <dialog id="dlgConfirmationDelete">
+  <div class="dialogs">
+  <dialog id="dlgDeleteRow">
     <form method="dialog">
       <h4>Delete which line number?</h4>
       <input id="rowDelete" type="number"></button>
       <br><br>
-      <button id="confirmDelete" value="confirm">Confirm</button>
-      <button id="cancelDelete" value="cancel">Cancel</button>
+      <button id="confirmDeleteRow" class="btnYes">Confirm</button>
+      <button class="btnNo">Cancel</button>
     </form>
   </dialog>
-  </div>
+
+  <dialog id="dlgDeleteAll">
+    <form method="dialog">
+      <h4>Delete all table content?</h4>
+      <br><br>
+      <button id="confirmDeleteAll" class="btnYes">Confirm</button>
+      <button class="btnNo">Cancel</button>
+    </form>
+  </dialog>
+
+  <dialog id="dlgSaveTable">
+    <form method="dialog">
+      <h4>Warning: Saving will overwrite this table. Proceed?</h4>
+      <br><br>
+      <button id="confirmSave" class="btnYes">Confirm</button>
+      <button class="btnNo">Cancel</button>
+    </form>
+  </dialog>
+
+  <dialog id="dlgRetrieveSave">
+    <form method="dialog">
+      <h4>Load this table?</h4>
+      <br><br>
+      <button id="confirmRetrieve" class="btnYes">Confirm</button>
+      <button class="btnNo">Cancel</button>
+    </form>
+  </dialog>
 
 </div>
 <script src="payroll.js"></script>
