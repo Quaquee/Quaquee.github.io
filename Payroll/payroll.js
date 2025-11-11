@@ -1,5 +1,9 @@
 //INITIALIZATION
 function initEventHandler() {
+  document.getElementById("employeeName").addEventListener("input", () => {
+    document.getElementById("employeeName").value = document.getElementById("employeeName").value.replace(/[<>`"'\/\\;\[\]\{\}`]/g, ''); 
+  });
+
   document.getElementById("daysWorked").addEventListener("change", computeGrossPay);
   document.getElementById("dailyRate").addEventListener("change", computeGrossPay);
   document.getElementById("deductionAmount").addEventListener("change", computeNetPay);
