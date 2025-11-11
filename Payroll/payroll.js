@@ -1,3 +1,39 @@
+//Initialization Functions
+function initEventHandler() {
+  document.getElementById("daysWorked").addEventListener("change", computeGrossPay);
+  document.getElementById("dailyRate").addEventListener("change", computeGrossPay);
+  document.getElementById("deductionAmount").addEventListener("change", computeNetPay);
+  document.getElementById("addRow").addEventListener("click", addRow);
+  document.getElementById("deleteRow").addEventListener("click", deleteConfirmation);
+  document.getElementById("deleteAll").addEventListener("click", deleteAll);
+  document.getElementById("save").addEventListener("click", save);
+  document.getElementById("retrieveSave").addEventListener("click", retrieveSave);
+}
+
+function initDialog() {
+  //Delete Row?
+  confirmDelete.addEventListener("click", () => { 
+    dlgConfirmationDelete.returnValue = "confirm";
+    dlgConfirmationDelete.close("confirm");
+  });
+
+  cancelDelete.addEventListener("click", () => {
+    dlgConfirmationDelete.returnValue = "cancel";
+    dlgConfirmationDelete.close("cancel");
+  });
+
+  dlgConfirmationDelete.addEventListener("close", (choice) => {
+    let choiceValue = choice.target.returnValue;
+    if (choiceValue == "confirm") {
+      deleteRow();
+    }
+  });
+
+  //Save Table?
+
+  //Load Saved Table?
+}
+
 //Functions (Alphabetical Order)
 function addRow() {
   let employeeInfo = {
@@ -9,22 +45,33 @@ function addRow() {
     "netPay":document.getElementById("netPay").value
   };
   rowInfo.push(employeeInfo);
-  updateRows();
+
+  document.getElementById("rowDisplay").innerHTML +="<tr>"
+  +"<td>"+(rowInfo.length)+"</td>"
+  +"<td>"+employeeInfo.employeeName+"</td>"
+  +"<td>"+employeeInfo.daysWorked+"</td>"
+  +"<td>"+employeeInfo.dailyRate+"</td>"
+  +"<td>"+employeeInfo.grossPay+"</td>"
+  +"<td>"+employeeInfo.deductionAmount+"</td>"
+  +"<td>"+employeeInfo.netPay+"</td>"
+  +"</tr>";
 }
 
 function computeGrossPay() 
 {
-  document.getElementById("grossPay").value = document.getElementById("daysWorked").value * document.getElementById("dailyRate").value;
+  document.getElementById("daysWorked").value = round(document.getElementById("daysWorked").value, 0);
+  document.getElementById("dailyRate").value = round(document.getElementById("dailyRate").value, 2);
+  document.getElementById("grossPay").value = round(document.getElementById("daysWorked").value * document.getElementById("dailyRate").value, 2);
   computeNetPay();
 }
 
 function computeNetPay()
 {
-  document.getElementById("netPay").value = document.getElementById("grossPay").value - document.getElementById("deductionAmount").value;
+  document.getElementById("deductionAmount").value = round(document.getElementById("deductionAmount").value, 2);
+  document.getElementById("netPay").value = round(document.getElementById("grossPay").value - document.getElementById("deductionAmount").value, 2);
 }
 
 function deleteConfirmation() {
-  document.getElementById("confirmationDeleteMsg").innerHTML = "Delete which line number?";
   dlgConfirmationDelete.showModal();
 }
 
@@ -49,6 +96,14 @@ function retrieveSave() {
   updateRows();
 }
 
+function round(IN, DP) {
+    IN = parseFloat(IN);
+    if (!isNaN(IN)) {
+        IN = IN.toFixed(DP);
+    }
+    return IN;
+}
+
 function updateRows() {
   document.getElementById("rowDisplay").innerHTML = "";
   let employeeCount = rowInfo.length;
@@ -65,7 +120,7 @@ function updateRows() {
     +"</tr>";
   }
 
-    //Reset Values
+  //Reset Values
   document.getElementById("employeeName").value = null;
   document.getElementById("daysWorked").value = null;
   document.getElementById("dailyRate").value = null;
@@ -78,6 +133,7 @@ function updateRows() {
 let rowInfo = [];
 (()=>
 {
+  //load saved table upon page loading
   try {
     const savedData = localStorage.getItem("tableSave");
     if (savedData) {
@@ -89,30 +145,8 @@ let rowInfo = [];
     console.error("Error loading data from localStorage", error);
   }
 
-  document.getElementById("daysWorked").addEventListener("input", computeGrossPay);
-  document.getElementById("dailyRate").addEventListener("input", computeGrossPay);
-  document.getElementById("deductionAmount").addEventListener("input", computeNetPay);
-  document.getElementById("addRow").addEventListener("click", addRow);
-  document.getElementById("deleteRow").addEventListener("click", deleteConfirmation);
-  document.getElementById("deleteAll").addEventListener("click", deleteAll);
-  document.getElementById("save").addEventListener("click", save);
-  document.getElementById("retrieveSave").addEventListener("click", retrieveSave);
+  //initialization
+  initEventHandler();
+  initDialog();
 
-
-  confirmDelete.addEventListener("click", () =>{ 
-    dlgConfirmationDelete.returnValue = "confirm";
-    dlgConfirmationDelete.close("confirm");
-  });
-
-  cancelDelete.addEventListener("click", () => {
-    dlgConfirmationDelete.returnValue = "cancel";
-    dlgConfirmationDelete.close("cancel");
-  });
-
-  dlgConfirmationDelete.addEventListener("close", (choice) => {
-    let choiceValue = choice.target.returnValue;
-    if (choiceValue == "confirm") {
-      deleteRow();
-    }
-  });
 })();

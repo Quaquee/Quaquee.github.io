@@ -17,58 +17,72 @@
 <a href="../Payroll/payroll.html" class="active">Simple Payroll</a>
 </div>
 
+
 <div class="content">
-<h1>Payroll</h1>
-<h2>Add to payroll:</h2>
-<label for="employeeName">Employee Name: </label>
-<input type="text" id="employeeName"><br>
-<label for="daysWorked">Days Worked: </label>
-<input type="number" id="daysWorked"><br>
-<label for="dailyRate">Daily Rate: </label>
-<input type="number" id="dailyRate"><br>
-<label for="deductionAmount">Deduction Amount: </label>
-<input type="number" id="deductionAmount"><br>
-<label for="grossPay">Gross Pay: </label>
-<input type="number" id="grossPay" readonly><br>
-<label for="netPay">Net Pay: </label>
-<input type="number" id="netPay" readonly><br><br>
-<button id="addRow">Add to payroll</button>
-<button id="deleteRow">Delete from payroll</button>
-<br><br>
-<button id="deleteAll"><strong>Delete all table content</strong></button>
-<br><br>
-<button id="save"><strong>Save table</strong></button>
-<button id="retrieveSave"><strong>Retrieve saved table</strong></button>
+<!--Inputs-->
+  <div class = "inputs">
+  <h1>Payroll</h1>
+  <h2>Add to payroll:</h2>
+  <label for="employeeName">Employee Name: </label>
+  <input type="text" id="employeeName"><br>
+  <label for="daysWorked">Days Worked: </label>
+  <input type="number" id="daysWorked"><br>
+  <label for="dailyRate">Daily Rate: </label>
+  <input type="number" id="dailyRate"><br>
+  <label for="deductionAmount">Deduction Amount: </label>
+  <input type="number" id="deductionAmount"><br>
+  <label for="grossPay">Gross Pay: </label>
+  <input type="number" id="grossPay" readonly><br>
+  <label for="netPay">Net Pay: </label>
+  <input type="number" id="netPay" readonly><br><br>
+  </div>
 
-<dialog id="dlgConfirmationDelete">
-  <form method="dialog">
-    <h4 id="confirmationDeleteMsg"></h4>
-    <input id="rowDelete" type="number"></button>
-    <br><br>
-    <button id="confirmDelete" value="confirm">Confirm</button>
-    <button id="cancelDelete" value="cancel">Cancel</button>
-  </form>
-</dialog>
-</div>
+<!--Buttons-->
+  <div class = "buttons">
+  <button id="addRow">Add to payroll</button>
+  <button id="deleteRow">Delete from payroll</button>
+  <br><br>
+  <button id="deleteAll"><strong>Delete all table content</strong></button>
+  <br><br>
+  <button id="save"><strong>Save table</strong></button>
+  <button id="retrieveSave"><strong>Retrieve saved table</strong></button>
+  </div>
 
 <br><br>
-<div>
-<table>
-  <thead>
-    <tr>
-      <th>No.</th>
-      <th>Employee Name</th>
-      <th>Days Worked</th>
-      <th>Daily Rate</th>
-      <th>Gross Pay</th>
-      <th>Deduction Amount</th>
-      <th>Net Pay</th>
-    </tr>
-  </thead>
+
+<!--Table-->
+  <div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Employee Name</th>
+        <th>Days Worked</th>
+        <th>Daily Rate</th>
+        <th>Gross Pay</th>
+        <th>Deduction Amount</th>
+        <th>Net Pay</th>
+      </tr>
+    </thead>
 
   <tbody id="rowDisplay"></tbody>
   
-</table>
+  </table>
+  </div>
+
+<!--Dialog Boxes-->
+  <div class = "dialogs">
+  <dialog id="dlgConfirmationDelete">
+    <form method="dialog">
+      <h4>Delete which line number?</h4>
+      <input id="rowDelete" type="number"></button>
+      <br><br>
+      <button id="confirmDelete" value="confirm">Confirm</button>
+      <button id="cancelDelete" value="cancel">Cancel</button>
+    </form>
+  </dialog>
+  </div>
+
 </div>
 <script src="payroll.js"></script>
 </body>
