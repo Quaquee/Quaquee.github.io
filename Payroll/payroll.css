@@ -32,7 +32,7 @@ input[type="number"]::-webkit-inner-spin-button {
   grid-row: 1/2;
   display: inline grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 5rem ;
+  grid-template-rows: 5rem;
 }
 
 .content .inputs h2 {
@@ -45,6 +45,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .inputs input {
   grid-column: 2;
+  max-height: 1 rem;
 }
 
 .content .buttons {
