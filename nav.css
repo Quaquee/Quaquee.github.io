@@ -1,13 +1,19 @@
 body {
-  margin: 0;
+  margin-top: 10vh;
   background-color: #fcfdec
 }
 
 nav {
+  position: fixed;
+  height: 6vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
   display: flex;
   overflow: hidden;
   background-color: #fae884;
-  font-family: Verdana, Geneva, Tahoma, sans-serif
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  z-index: 1000;
 }
 
 nav a {
