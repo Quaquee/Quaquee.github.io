@@ -12,43 +12,39 @@ function initEventHandler() {
   document.getElementById("deleteAll").addEventListener("click", deleteAllConfirmation);
   document.getElementById("save").addEventListener("click", saveConfirmation);
   document.getElementById("retrieveSave").addEventListener("click", retrieveConfirmation);
+
+  //Delete Row
+  confirmDeleteRow.addEventListener("click", deleteRow);
+
+  //Delete All
+  confirmDeleteAll.addEventListener("click", deleteAll);
+
+  //Save Table
+  confirmSave.addEventListener("click", save);
+
+  //Load Saved Table
+  confirmRetrieve.addEventListener("click", retrieveSave);
 }
 
 //DIALOG FUNCTIONS
 //Delete Row
 function deleteRowConfirmation() {
   dlgDeleteRow.showModal();
-
-  confirmDeleteRow.addEventListener("click", () => { 
-    deleteRow();
-  });
 }
 
 //Delete All?
 function deleteAllConfirmation() {
   dlgDeleteAll.showModal();
-
-  confirmDeleteAll.addEventListener("click", () => { 
-    deleteAll();
-  });
 }
 
 //Save Table?
 function saveConfirmation() {
   dlgSaveTable.showModal();
-
-  confirmSave.addEventListener("click", () => { 
-    save();
-  });
 }
 
 //Load Saved Table?
 function retrieveConfirmation() {
   dlgRetrieveSave.showModal();
-
-  confirmRetrieve.addEventListener("click", () => { 
-    retrieveSave();
-  });
 }
 
 //OTHER FUNCTIONS (ALPHABETICAL ORDER)
@@ -72,6 +68,7 @@ function addRow() {
   +"<td>"+employeeInfo.deductionAmount+"</td>"
   +"<td>"+employeeInfo.netPay+"</td>"
   +"</tr>";
+  updateRows();
 }
 
 function computeGrossPay() 
@@ -102,6 +99,12 @@ function deleteAll() {
 
 function save() {
   localStorage.setItem("tableSave", JSON.stringify(rowInfo));
+  if (localStorage.getItem("tableSave")) {
+    alert("Saved successfully!");
+  }
+  else {
+    alert("Unsuccessful save, please try again.");
+  }
 }
 
 function retrieveSave() {

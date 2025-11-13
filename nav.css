@@ -3,13 +3,13 @@ body {
   background-color: #fcfdec
 }
 
-.nav {
+nav {
   overflow: hidden;
   background-color: #fae884;
   font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
-.nav a {
+nav a {
   color: #000000;
   float: left;
   padding: 12px 20px;
@@ -17,14 +17,14 @@ body {
   text-decoration: none;
 }
 
-.nav a:hover {
+nav a:hover {
   background-color: #faf0be
 }
 
-.nav a.active {
+nav a.active {
   background-color: #ffda0b;
 }
 
-.nav a.main {
+nav a.main {
   font-weight: bold;
 }
