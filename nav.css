@@ -4,6 +4,7 @@ body {
 }
 
 nav {
+  display: flex;
   overflow: hidden;
   background-color: #fae884;
   font-family: Verdana, Geneva, Tahoma, sans-serif
