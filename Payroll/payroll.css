@@ -94,10 +94,12 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /*Dialog CSS*/
+dialog form {
+  text-align: center;
+
+}
 dialog form button {
   width: 40%;
-  margin: 0 auto;
-  text-align: center;
 }
 
 .btnYes {
