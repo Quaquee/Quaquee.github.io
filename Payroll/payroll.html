@@ -1,112 +1,113 @@
 <!DOCTYPE html> 
 <html>
 <head>
-<title>Simple Payroll</title>
-<link rel="stylesheet" href="payroll.css">
-<link rel="stylesheet" href="../nav.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Payroll</title>
+  <link rel="stylesheet" href="payroll.css">
+  <link rel="stylesheet" href="../nav.css">
 </head>
 
 <body>
+  <!--NAVIGATION BAR-->
+  <nav>
+    <a href="../index.html" class="main">HOME</a>
+    <a href="../UnitConverter/converter.html">Unit Converter</a>
+    <a href="../IncomeTax/tax.html">Income Tax Calculator</a>
+    <a href="../Factorial/sequence.html">Sequence Calculator</a>
+    <a href="../Payroll/payroll.html" class="active">Simple Payroll</a>
+  </nav>
 
-<!--NAVIGATION BAR-->
-<nav>
-  <a href="../index.html" class="main">HOME</a>
-  <a href="../UnitConverter/converter.html">Unit Converter</a>
-  <a href="../IncomeTax/tax.html">Income Tax Calculator</a>
-  <a href="../Factorial/sequence.html">Sequence Calculator</a>
-  <a href="../Payroll/payroll.html" class="active">Simple Payroll</a>
-</nav>
+  <span id="filler"></span>
+  <div class="content">
+  <!--Inputs-->
+    <div class="inputs">
+    <h2>Employee Information:</h2>
+    <label for="employeeName">Employee Name: </label>
+    <input type="text" id="employeeName"><br>
+    <label for="daysWorked">Days Worked: </label>
+    <input type="number" id="daysWorked"><br>
+    <label for="dailyRate">Daily Rate: </label>
+    <input type="number" id="dailyRate"><br>
+    <label for="deductionAmount">Deduction Amount: </label>
+    <input type="number" id="deductionAmount"><br>
+    <label for="grossPay">Gross Pay: </label>
+    <input type="number" id="grossPay" readonly><br>
+    <label for="netPay">Net Pay: </label>
+    <input type="number" id="netPay" readonly><br><br>
+    </div>
 
-<span id="filler"></span>
-<div class="content">
-<!--Inputs-->
-  <div class="inputs">
-  <h2>Employee Information:</h2>
-  <label for="employeeName">Employee Name: </label>
-  <input type="text" id="employeeName"><br>
-  <label for="daysWorked">Days Worked: </label>
-  <input type="number" id="daysWorked"><br>
-  <label for="dailyRate">Daily Rate: </label>
-  <input type="number" id="dailyRate"><br>
-  <label for="deductionAmount">Deduction Amount: </label>
-  <input type="number" id="deductionAmount"><br>
-  <label for="grossPay">Gross Pay: </label>
-  <input type="number" id="grossPay" readonly><br>
-  <label for="netPay">Net Pay: </label>
-  <input type="number" id="netPay" readonly><br><br>
-  </div>
+  <!--Buttons-->
+    <div class="buttons">
+    <button id="addRow">Add to payroll</button>
+    <button id="deleteRow">Delete from payroll</button>
+    <br><br>
+    <button id="deleteAll"><strong>Delete all table content</strong></button>
+    <br><br>
+    <button id="save"><strong>Save table</strong></button>
+    <button id="retrieveSave"><strong>Load saved table</strong></button>
+    </div>
 
-<!--Buttons-->
-  <div class="buttons">
-  <button id="addRow">Add to payroll</button>
-  <button id="deleteRow">Delete from payroll</button>
   <br><br>
-  <button id="deleteAll"><strong>Delete all table content</strong></button>
-  <br><br>
-  <button id="save"><strong>Save table</strong></button>
-  <button id="retrieveSave"><strong>Load saved table</strong></button>
+
+  <!--Table-->
+    <div class="table">
+    <table>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Employee Name</th>
+          <th>Days<br>Worked</th>
+          <th>Daily Rate</th>
+          <th>Gross Pay</th>
+          <th>Deduction<br>Amount</th>
+          <th>Net Pay</th>
+        </tr>
+      </thead>
+
+    <tbody id="rowDisplay"></tbody>
+    
+    </table>
+    </div>
+
+  <!--Dialog Boxes-->
+    <div class="dialogs">
+    <dialog id="dlgDeleteRow">
+      <form method="dialog">
+        <h4>Delete which line number?</h4>
+        <input id="rowDelete" type="number"></button>
+        <br><br>
+        <button id="confirmDeleteRow" class="btnYes">Confirm</button>
+        <button class="btnNo">Cancel</button>
+      </form>
+    </dialog>
+
+    <dialog id="dlgDeleteAll">
+      <form method="dialog">
+        <h4>Delete all table content?</h4>
+        <button id="confirmDeleteAll" class="btnYes">Confirm</button>
+        <button class="btnNo">Cancel</button>
+      </form>
+    </dialog>
+
+    <dialog id="dlgSaveTable">
+      <form method="dialog">
+        <h4>Saving will overwrite the previously saved table. Proceed?</h4>
+        <button id="confirmSave" class="btnYes">Confirm</button>
+        <button class="btnNo">Cancel</button>
+      </form>
+    </dialog>
+
+    <dialog id="dlgRetrieveSave">
+      <form method="dialog">
+        <h4>Load the currently saved table?</h4>
+        <button id="confirmRetrieve" class="btnYes">Confirm</button>
+        <button class="btnNo">Cancel</button>
+      </form>
+    </dialog>
+    </div>
+
   </div>
-
-<br><br>
-
-<!--Table-->
-  <div class="table">
-  <table>
-    <thead>
-      <tr>
-        <th>No.</th>
-        <th>Employee Name</th>
-        <th>Days<br>Worked</th>
-        <th>Daily Rate</th>
-        <th>Gross Pay</th>
-        <th>Deduction<br>Amount</th>
-        <th>Net Pay</th>
-      </tr>
-    </thead>
-
-  <tbody id="rowDisplay"></tbody>
-  
-  </table>
-  </div>
-
-<!--Dialog Boxes-->
-  <div class="dialogs">
-  <dialog id="dlgDeleteRow">
-    <form method="dialog">
-      <h4>Delete which line number?</h4>
-      <input id="rowDelete" type="number"></button>
-      <br><br>
-      <button id="confirmDeleteRow" class="btnYes">Confirm</button>
-      <button class="btnNo">Cancel</button>
-    </form>
-  </dialog>
-
-  <dialog id="dlgDeleteAll">
-    <form method="dialog">
-      <h4>Delete all table content?</h4>
-      <button id="confirmDeleteAll" class="btnYes">Confirm</button>
-      <button class="btnNo">Cancel</button>
-    </form>
-  </dialog>
-
-  <dialog id="dlgSaveTable">
-    <form method="dialog">
-      <h4>Saving will overwrite the previously saved table. Proceed?</h4>
-      <button id="confirmSave" class="btnYes">Confirm</button>
-      <button class="btnNo">Cancel</button>
-    </form>
-  </dialog>
-
-  <dialog id="dlgRetrieveSave">
-    <form method="dialog">
-      <h4>Load the currently saved table?</h4>
-      <button id="confirmRetrieve" class="btnYes">Confirm</button>
-      <button class="btnNo">Cancel</button>
-    </form>
-  </dialog>
-  </div>
-
-</div>
-<script src="payroll.js"></script>
+  <script src="payroll.js"></script>
 </body>
 </html>

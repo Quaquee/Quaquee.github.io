@@ -1,83 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Income Tax Calculator</title>
-<link rel="stylesheet" href="tax.css">
-<link rel="stylesheet" href="../nav.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income Tax Calculator</title>
+  <link rel="stylesheet" href="tax.css">
+  <link rel="stylesheet" href="../nav.css">
 </head>
 
 <body>
 
-<!--NAVIGATION BAR-->
-<nav>
-  <a href="../index.html" class="main">HOME</a>
-  <a href="../UnitConverter/converter.html">Unit Converter</a>
-  <a href="../IncomeTax/tax.html" class="active">Income Tax Calculator</a>
-  <a href="../Factorial/sequence.html">Sequence Calculator</a>
-  <a href="../Payroll/payroll.html">Simple Payroll</a>
-</nav>
+  <!--NAVIGATION BAR-->
+  <nav>
+    <a href="../index.html" class="main">HOME</a>
+    <a href="../UnitConverter/converter.html">Unit Converter</a>
+    <a href="../IncomeTax/tax.html" class="active">Income Tax Calculator</a>
+    <a href="../Factorial/sequence.html">Sequence Calculator</a>
+    <a href="../Payroll/payroll.html">Simple Payroll</a>
+  </nav>
 
-<div class="content">
-<h1>Income Tax Calculator</h1>
-<table>
-  <tr>
-    <th>Over</th>
-    <th>But Not Over</th>
-    <th>Rate</th>
-    <th>Sample Taxable Income</th>
-    <th>Sample Income Tax</th>
-  </tr>
-  <tr>
-    <td>0.00</td>
-    <td>P250,000</td>
-    <td>0%</td>
-    <td>P180,000</td>
-    <td>0.00</td>
-  </tr>
-  <tr>
-    <td>P250,000</td>
-    <td>P400,000</td>
-    <td>20% of the excess over P250,000</td>
-    <td>P320,000</td>
-    <td>P14,000</td>
-  </tr>
-  <tr>
-    <td>P400,000</td>
-    <td>P800,000</td>
-    <td>P30,000 + 25% of the excess over P400,000</td>
-    <td>P520,000</td>
-    <td>P60,000</td>
-  </tr>
-  <tr>
-    <td>P800,000</td>
-    <td>P2,000,000</td>
-    <td>P130,000 + 30% of the excess over P800,000</td>
-    <td>P930,000</td>
-    <td>P169,000</td>
-  </tr>
-  <tr>
-    <td>P2,000,000</td>
-    <td>P8,000,000</td>
-    <td>P490,000 + 32% of the excess over P2,000,000</td>
-    <td>P2,400,000</td>
-    <td>P618,000</td>
-  </tr>
-  <tr>
-    <td>P8,000,000</td>
-    <td></td>
-    <td>P2,410,000 + 35% of the excess over P8,000,000</td>
-    <td>P10,000,000</td>
-    <td>P3,110,000</td>
-  </tr>
-</table>
-<br><br>
-<label for="income">Taxable Income: </label>
-<input id="income" type="number">
+  <div class="content">
+  <h1>Income Tax Calculator</h1>
+  <table>
+    <tr>
+      <th>Over</th>
+      <th>But Not Over</th>
+      <th>Rate</th>
+      <th>Sample Taxable Income</th>
+      <th>Sample Income Tax</th>
+    </tr>
+    <tr>
+      <td>0.00</td>
+      <td>P250,000</td>
+      <td>0%</td>
+      <td>P180,000</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>P250,000</td>
+      <td>P400,000</td>
+      <td>20% of the excess over P250,000</td>
+      <td>P320,000</td>
+      <td>P14,000</td>
+    </tr>
+    <tr>
+      <td>P400,000</td>
+      <td>P800,000</td>
+      <td>P30,000 + 25% of the excess over P400,000</td>
+      <td>P520,000</td>
+      <td>P60,000</td>
+    </tr>
+    <tr>
+      <td>P800,000</td>
+      <td>P2,000,000</td>
+      <td>P130,000 + 30% of the excess over P800,000</td>
+      <td>P930,000</td>
+      <td>P169,000</td>
+    </tr>
+    <tr>
+      <td>P2,000,000</td>
+      <td>P8,000,000</td>
+      <td>P490,000 + 32% of the excess over P2,000,000</td>
+      <td>P2,400,000</td>
+      <td>P618,000</td>
+    </tr>
+    <tr>
+      <td>P8,000,000</td>
+      <td></td>
+      <td>P2,410,000 + 35% of the excess over P8,000,000</td>
+      <td>P10,000,000</td>
+      <td>P3,110,000</td>
+    </tr>
+  </table>
+  <br><br>
+  <label for="income">Taxable Income: </label>
+  <input id="income" type="number">
 
-<label for="tax">Income Tax: </label>
-<input id="tax" type="number" readonly>
-</div>
+  <label for="tax">Income Tax: </label>
+  <input id="tax" type="number" readonly>
+  </div>
 
-<script src="tax.js"></script>
+  <script src="tax.js"></script>
 </body>
 </html>
