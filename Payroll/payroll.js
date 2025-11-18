@@ -100,7 +100,7 @@ function deleteAll() {
 function save() {
   localStorage.setItem("tableSave", JSON.stringify(rowInfo));
   if (localStorage.getItem("tableSave")) {
-    alert("Saved successfully!");
+    alert("Saved to local storage successfully!");
   }
   else {
     alert("Unsuccessful save, please try again.");
