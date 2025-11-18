@@ -1,5 +1,5 @@
 (() => {
-  document.getElementById("income").addEventListener("input", () => {
+  document.getElementById("income").addEventListener("change", () => {
     let income = document.getElementById("income").value * 1;
     let tax = 0;
     if (income <= 250000) {

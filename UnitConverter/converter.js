@@ -19,5 +19,5 @@
 //MAIN FUNCTION
 (() => {
   document.getElementById("convert").addEventListener("change", convertUnit);
-  document.getElementById("inputUnit").addEventListener("input", convertUnit);
+  document.getElementById("inputUnit").addEventListener("change", convertUnit);
 })();

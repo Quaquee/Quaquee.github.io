@@ -5,8 +5,8 @@
 /*Hides input arrows*/
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 #filler {
@@ -21,9 +21,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /*Payroll Table*/
 .content table {
-  width: 60%; 
-  min-width: 900px;
-  margin-left: 520px;
+  width: 60vw;
+  margin-left: calc(350px + 11vw);
   margin-top: -21px;
 }
 
@@ -33,11 +32,11 @@ th, td {
 }
 
 #rowDisplay tr:nth-child(even) {
-  background-color: rgb(233, 233, 233);
+  background-color: rgb(238, 238, 236);
 }
 
 #rowDisplay tr:nth-child(odd) {
-  background-color: rgb(253, 253, 149);
+  background-color: rgb(249, 249, 142);
 }
 
 .content th {
@@ -75,6 +74,13 @@ th, td {
 .inputs input {
   grid-column: 2;
   max-height: 1rem;
+}
+
+.inputs #grossPay, .inputs #netPay {
+  border-radius: 100px;
+  border: 1px solid rgb(135, 135, 135);
+  padding-left: 10px;
+  font-weight: 600;
 }
 
 /*Buttons CSS*/
