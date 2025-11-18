@@ -1,5 +1,5 @@
 .content {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /*Hides input arrows*/
@@ -19,13 +19,9 @@ input[type="number"]::-webkit-inner-spin-button {
   z-index: 1;
 }
 
-#scrollBandaid {
-  background-color:#fcfdec;
-  height: 800px;
-}
 /*Payroll Table*/
 .content table {
-  width: 50%;
+  width: 60%;
   min-width: 500px;
   margin-left: 525px;
   margin-top: -21px;
