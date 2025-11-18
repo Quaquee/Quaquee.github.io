@@ -80,7 +80,7 @@ th, td {
 
 .inputs #grossPay, .inputs #netPay {
   border-radius: 100px;
-  border: 1px solid rgb(135, 135, 135);
+  border-width: 1px;
   padding-left: 10px;
   font-weight: 600;
 }
