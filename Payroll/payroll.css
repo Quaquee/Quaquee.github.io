@@ -21,8 +21,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /*Payroll Table*/
 .content table {
-  width: 60vw;
-  margin-left: calc(350px + 11vw);
+  width: 50%;
+  margin-left: 525px;
   margin-top: -21px;
 }
 
@@ -41,9 +41,10 @@ th, td {
 
 .content th {
   position: sticky;
-  line-height: 2.5;
   top: 90px;
   background-color: #fcfdec;
+  line-height: 1.5;
+  padding: 10px;
   z-index: 2;
 }
 
